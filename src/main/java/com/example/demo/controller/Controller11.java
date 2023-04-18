@@ -23,7 +23,7 @@ public class Controller11 {
 
 	@Value("${spring.datasource.url}") // import org.springframework.beans.factory.annotation.Value;
 	private String url;
-	@Value("${spring.datasource.name}")
+	@Value("${spring.datasource.username}")
 	private String name;
 	@Value("${spring.datasource.password}")
 	private String password;

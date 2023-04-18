@@ -21,7 +21,7 @@ public class MyController02 {
 	@Value("${spring.datasource.url}")
 	private String url;
 	
-	@Value("${spring.datasource.name}")
+	@Value("${spring.datasource.username}")
 	private String name;
 	
 	@Value("${spring.datasource.password}")
@@ -35,7 +35,7 @@ public class MyController02 {
 				SELECT CustomerName,
 				CustomerID
 				 FROM Customers
-				 WHERE City ='LONDON';
+				 WHERE City ='Seoul';
 							
 				""";
 	try(

@@ -7,6 +7,7 @@ package com.example.demo.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class MyController01 {
 	// 그 값들을 따로 가져옴
 	@Value("${spring.datasource.url}")
 	private String url;
-	@Value("${spring.datasource.name}")
+	@Value("${spring.datasource.username}")
 	private String name;
 	@Value("${spring.datasource.password}")
 	private String password;
@@ -42,9 +43,10 @@ public class MyController01 {
 				WHERE City = 'Osaka'
 						""";
 		try (Connection connection = DriverManager.getConnection(url, name, password);
-				Statement statement = connection.createStatement();
-				ResultSet resultset = statement.executeQuery(sql);) {
+				PreparedStatement pstmt = connection.prepareStatement(sql);
+				) {
 
+			ResultSet resultset = pstmt.executeQuery();
 			String city = "";
 			if (resultset.next()) {
 				city = resultset.getString("SupplierName");
