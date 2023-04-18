@@ -188,6 +188,9 @@ public class Controller17 {
 		
 		if(rs.next()) {
 			Customer customer = new Customer();
+			// setCustomerName 은 도메인에서, 
+			// rs.getString("customerName")은 DB에서 받아옴
+			// DB에서 받아온 값을 customer객체에 새로 set하는 코드
 			customer.setCustomerName(rs.getString("customerName"));
 			customer.setContactName(rs.getString("contactName"));
 			customer.setAddress(rs.getString("address"));
@@ -196,6 +199,8 @@ public class Controller17 {
 			customer.setCountry(rs.getString("country"));
 			customer.setCustomerId(rs.getInt("customerID"));
 			model.addAttribute("customer", customer);
+			
+			// view 에서 사용하기위해 customer객체를 만들어서 model에 추가해 넘김
 		}
 		}
 		catch (Exception e) {
