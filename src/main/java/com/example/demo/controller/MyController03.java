@@ -13,7 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.example.demo.domain.Employee;
+import com.example.demo.domain.Employees;
 
 @Controller
 @RequestMapping("sub3")

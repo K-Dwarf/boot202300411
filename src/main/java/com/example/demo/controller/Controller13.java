@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.domain.Customer;
-import com.example.demo.domain.Employee;
+import com.example.demo.domain.Employees;
 
 
 @Controller
@@ -80,7 +80,7 @@ public class Controller13 {
 				
 				""";
 		
-		List<Employee> list = new ArrayList();
+		List<Employees> list = new ArrayList();
 		
 		try(
 				Connection con = DriverManager.getConnection(url, name, password);
@@ -93,7 +93,7 @@ public class Controller13 {
 			String ln = rs.getString("LastName");
 			String fn = rs.getString("FirstName");
 			
-			Employee employee = new Employee();
+			Employees employee = new Employees();
 			employee.setId(id);
 			employee.setLastName(ln);
 			employee.setFirstName(fn);
@@ -184,7 +184,7 @@ public class Controller13 {
 		//사용자에게 직원 id 입력 받아서
 		// 쿼리 완성하고 실행 후에 
 		// /sub13/link2 로 포워드 해서 직원 1명 출력
-		var list = new ArrayList<Employee>();
+		var list = new ArrayList<Employees>();
 		String sql = """
 				SELECT EmployeeId,
 				lastName,
@@ -199,7 +199,7 @@ public class Controller13 {
 		
 		
 		while(rs.next()) {
-			Employee employee = new Employee();
+			Employees employee = new Employees();
 			employee.setId(rs.getInt("employeeId"));
 			employee.setFirstName(rs.getString("firstName"));
 			employee.setLastName(rs.getString("lastName"));
