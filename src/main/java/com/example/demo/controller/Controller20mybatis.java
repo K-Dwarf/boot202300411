@@ -104,5 +104,7 @@ public class Controller20mybatis {
 		System.out.println(productsList);
 		
 	}
+	
+	
 }
 
