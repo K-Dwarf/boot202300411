@@ -15,7 +15,7 @@ import com.example.demo.mapper.Mapper02;
 
 @Controller
 @RequestMapping("sub22")
-public class Controlloer22 {
+public class Controller22 {
 
 	@Autowired
 	private Mapper02 mapper;

@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.domain.Customer;
+import com.example.demo.domain.Employee;
+import com.example.demo.domain.Employees;
 
 @Mapper
 public interface Mapper05 {
@@ -64,4 +66,32 @@ public interface Mapper05 {
 			""")
 	Customer sql5(Integer id);
 // ******************** ******************** ********************	
+	@Select("""
+			SELECT 
+				EmployeeId AS id,
+				LastName,
+				FirstName,
+				Notes,
+				Photo,
+				BirthDate birth
+			FROM Employees
+			WHERE EmployeeId = #{id}
+			""")
+	Employees sql6(Integer id);
+	
+	@Update("""
+			UPDATE Employees
+			SET 
+				LastName = #{lastName},
+				FirstName = #{firstName},
+				Photo = #{photo},
+				Notes = #{notes},
+				BirthDate = #{birth}
+			WHERE
+				EmployeeId = #{id}
+			""")
+	int sql7(Employees employee);
+
+
+
 }

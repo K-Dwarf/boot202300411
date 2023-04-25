@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Customer;
+import com.example.demo.domain.Employees;
 import com.example.demo.mapper.Mapper05;
 
 @Controller
@@ -64,4 +65,23 @@ public class Controller24 {
 	// 클라이언트에서 파라미터값+요청 -> 컨트롤러 link6 -> view link6 ->
 	// 컨트롤러 link5 -> mapper sql4 -> DB업데이트 
 	//******************** ******************** ********************
+	
+	
+	
+	// 직원 조회 및 수정 코드 작성
+	// 경로 : /sub24/link7?id=3
+	@RequestMapping("link7")
+	public void method7(Integer id, Model model) {
+		Employees emp = mapper05.sql6(id);
+		model.addAttribute("employee", emp);
+	}
+	
+	// 경로 : /sub24/link8
+	// method : post
+	@RequestMapping("link8")
+	public void method8(Employees e) {
+		int cnt = mapper05.sql7(e);
+		System.out.println(cnt + "개 행 수정됨");
+	}
+	
 }
