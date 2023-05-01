@@ -38,8 +38,9 @@
 
 				<c:forEach items="${employee }" var="em">
 					<tr>
-						<td><li>${em }	<td />
+						<!--  <td><li>${em }	<td />-->
 						<td>${em.id }	<td />
+						<td>${em.firstName }
 						<td>${em.lastName }	<td />
 						<!--  -->
 					</tr>

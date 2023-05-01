@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -132,6 +133,24 @@ public class Controller25 {
 		System.out.println("location:" + location);
 	}
 	// ************** ************** ************** ************** ************** 
+	// 클라이언트에서 파라미터 받아서 
+	
+	@GetMapping("link17")
+	public String method17(RedirectAttributes rda, 
+            @RequestParam("email") String email,
+            @RequestParam("location") String location) {
+rda.addAttribute("email", email);
+rda.addAttribute("location", location);
+	    return "redirect:link18";
+	}
+
+	@GetMapping("link18")
+	public void method18(@ModelAttribute("email") String email,
+	                     @ModelAttribute("location") String location) {
+	    System.out.println("email:" + email);
+	    System.out.println("location:" + location);
+	}
+	//  ********* ********* ********* ********* ********* ********* ********* *********
 	
 	/*RedirectAttributes는 스프링에서 제공하는 클래스로, 리다이렉트를 수행할 때 데이터를 전달할 수 있는 기능을 제공합니다.
 

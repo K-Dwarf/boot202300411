@@ -7,7 +7,7 @@ import lombok.Setter;
 @Data
 public class Customer {
 
-	private int customerId;
+	private int customerId ;
 	private String customerName;
 	private String contactName;
 	private String address;
