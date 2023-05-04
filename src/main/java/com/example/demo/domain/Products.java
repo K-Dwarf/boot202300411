@@ -7,7 +7,7 @@ public class Products {
 
 	int productId;
 	String productName;
-	int supplierId;
+	int SupplierId;
 	int categoryId;
 	String unit;
 	double price;

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.Mapper11">
+ 
+ 
+ 
+ <!-- Mapper11 의 sql1 mapper -->
+ <resultMap type="com.example.demo.domain.Category" id="categoryResult">
+  	<id column="categoryId" property="id"/>
+ 	<result column="categoryName" property="name"/>
+ 	<result column="description" property="description" />
+ 	<collection  property="products" ofType="string">   <!-- Category Bean에 List로 작성했으므로 collection으로 작성 -->
+ 	<result column = "productName" />
+ 	</collection> 
+ </resultMap>
+ 
+ 
+  <!-- Mapper11 의 sql2 mapper -->
+<resultMap type="com.example.demo.domain.Category" id="categoryResultMap">
+ 
+ <id column="CategoryId" property="id"></id>
+ <result column="CategoryName" property="name"/>
+ <result column="Description" property="description"/>
+ <collection property="products" ofType= "com.example.demo.domain.Products">
+ <result column="ProductName" property="productName"/>
+ <result column="Price" property="price"/>
+ </collection>
+ </resultMap>
+ 
+ 
+<resultMap type="com.example.demo.domain.Supplier" id="SupplierMap">
+
+<id column = "SupplierID" property="id"/>
+  <result column="SupplierName" property="SupplierName" />
+  <result column="City" property="City" />
+  <result column="ContactName" property="ContactName" />
+ <collection property="products" ofType= "com.example.demo.domain.Products">
+ <result column="ProductName" property="productName"/>
+
+<result column="ProductID" property="productId"/>
+</collection>
+</resultMap>
+
+
+
+
+
+
+
+
+</mapper>
