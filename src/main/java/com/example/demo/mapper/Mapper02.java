@@ -50,7 +50,7 @@ public interface Mapper02 {
 	
 	
 	@Select("""
-			SELECT ProductName
+			SELECT ProductName,Price
 			FROM Products
 			WHERE CategoryID = #{id}
 			""")
